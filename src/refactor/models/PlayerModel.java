@@ -2,7 +2,7 @@ package refactor.models;
 
 import java.util.*;
 
-public class GameModel {
+public class PlayerModel {
 	private List<String> redApples;
 	private List<String> greenApples;
 	private List<String> discardedRedApples;

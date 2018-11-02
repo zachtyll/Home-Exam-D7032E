@@ -1,5 +1,6 @@
 package refactor.controllers;
 
+import java.util.Collections;
 import java.util.List;
 
 import refactor.models.GameModel;
@@ -12,6 +13,14 @@ public class GameController {
 	   public GameController(GameModel model, GameView view){
 	      this.model = model;
 	      this.view = view;
+	   }
+	   
+	   public int getNumberOfPlayers() {
+		   return model.getNumberOfPlayers();
+	   }
+	   
+	   public void setNumberOfPlayers(int numberOfPlayers) {
+		   model.setNumberOfPlayers(numberOfPlayers);
 	   }
 
 	   public void setGreenApples(List<String> greenApples){
@@ -31,7 +40,7 @@ public class GameController {
 	   }
 	   
 	   public String dealRedApples() {
-		    String dealtCard = model.getGreenApples().get(0);
+		    String dealtCard = model.getRedApples().get(0);
 			model.getRedApples().remove(0);
 			return dealtCard;
 		}
@@ -40,6 +49,10 @@ public class GameController {
 			String dealtCard = model.getGreenApples().get(0);
 			model.getGreenApples().remove(0);
 			return dealtCard;
+		}
+		
+		public void shuffleCards(List<String> deck) {
+			Collections.shuffle(deck);
 		}
 
 	   public void updateView(){				

@@ -1,9 +1,8 @@
 package refactor.programState;
 
 import java.util.Scanner;
+import refactor.programState.PlayingLocalGameProgramState;;
 
-import refactor.gameState.GameContext;
-import refactor.gameState.InitializeGameState;
 
 public class LocalGameProgramState implements ProgramState {
 
@@ -21,9 +20,9 @@ public class LocalGameProgramState implements ProgramState {
     	   char c = sc.next().charAt(0);
     	   switch(c) {
     	   	case '1' :
-    	        GameContext gameContext = new GameContext();
-    	        InitializeGameState initializeGameState = new InitializeGameState();
-    	        initializeGameState.doGameAction(gameContext);
+    	   		System.out.println("Starting a new Local Game.");
+    	   		PlayingLocalGameProgramState playingLocalGameState = new PlayingLocalGameProgramState();
+    	   		playingLocalGameState.doAction(context);
   				break;
     	   	case '2' :
     	   		System.out.println("TODO: Build config functionality!!!");

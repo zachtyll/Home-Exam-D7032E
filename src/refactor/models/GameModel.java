@@ -2,20 +2,23 @@ package refactor.models;
 
 import java.util.*;
 
+import refactor.models.PlayerModel;
+
 public class GameModel {
 	private List<String> redApples;
 	private List<String> greenApples;
 	private List<String> discardedRedApples;
 	private List<String> discardedGreenApples;
+	private List<PlayerModel> playerList = new ArrayList<PlayerModel>();
 	private int numberOfPlayers;
-	private List<PlayerModel> playerList;
+	private int cardsToWin;
 		  
-	public List<PlayerModel> getPlayerList() {
-		return playerList;
+	public int getCardsToWin() {
+		return cardsToWin;
 	}
 	
-	public void setPlayerList(List<PlayerModel> playerList) {
-		this.playerList = playerList;
+	public void setCardsToWin(int cardsToWin) {
+		this.cardsToWin = cardsToWin;
 	}
 	
 	public int getNumberOfPlayers() {
@@ -24,6 +27,14 @@ public class GameModel {
 	
 	public void setNumberOfPlayers(int numberOfPlayers) {
 		this.numberOfPlayers = numberOfPlayers;
+	}
+	
+	public List<PlayerModel> getPlayerList() {
+		return playerList;
+	}
+	
+	public void addPlayerList(PlayerModel playerList) {
+		this.playerList.add(playerList);
 	}
 	
 	public List<String> getRedApples() {

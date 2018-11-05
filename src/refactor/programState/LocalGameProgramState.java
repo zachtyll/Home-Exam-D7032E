@@ -1,6 +1,8 @@
 package refactor.programState;
 
 import java.util.Scanner;
+
+import refactor.programIO.ProgramScanner;
 import refactor.programState.PlayingLocalGameProgramState;;
 
 
@@ -10,16 +12,14 @@ public class LocalGameProgramState implements ProgramState {
        System.out.println("Player is in Local Game state.");
        context.setState(this);
        // TODO: Add creating a local game functionality.
-       
-       Scanner sc = new Scanner(System.in); 
  		
        System.out.println("Enter characters, 'q' to go to main menu.");
        System.out.println("[1] Start game.");
        System.out.println("[2] Configure game settings.");
-       try {		
-    	   char c = sc.next().charAt(0);
-    	   switch(c) {
-    	   	case '1' :
+      	
+       ProgramScanner sc = ProgramScanner.getInstance();
+       switch(sc.readChar()) {
+       		case '1' :
     	   		System.out.println("Starting a new Local Game.");
     	   		PlayingLocalGameProgramState playingLocalGameState = new PlayingLocalGameProgramState();
     	   		playingLocalGameState.doAction(context);
@@ -35,11 +35,6 @@ public class LocalGameProgramState implements ProgramState {
   				System.out.println("Invalid input!\n");
   				doAction(context);
     	   }
-       } finally {
-    	   if (sc != null) {
-    		   sc.close();
-    	   }
-       }
     }
  
     public String toString(){

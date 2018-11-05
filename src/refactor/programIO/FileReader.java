@@ -1,4 +1,4 @@
-package refactor.fileReader;
+package refactor.programIO;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;

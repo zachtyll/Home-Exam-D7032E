@@ -1,12 +1,11 @@
 package refactor.programState;
 
-import java.util.Scanner;
+import refactor.programIO.ProgramScanner;
 
 public class StartProgramState implements ProgramState {
 
     public void doAction(ProgramContext context) {
     	context.setState(this);
-   		Scanner sc = new Scanner(System.in); 
    		
    		System.out.println("Enter characters, 'q' to quit.");
    		System.out.println("[1] Join online game.");
@@ -14,9 +13,9 @@ public class StartProgramState implements ProgramState {
         System.out.println("[3] Create local game.");
         System.out.println("[4] Configure Settings.");
    		
-   		try {
-    		char c = sc.next().charAt(0);
-    		switch(c) {
+    	ProgramScanner sc = ProgramScanner.getInstance();
+    	
+    		switch(sc.readChar()) {
     			case '1' :
     				System.out.println("Entering Join Hosted Game State.\n");
    					JoinGameProgramState joinGameState = new JoinGameProgramState();
@@ -44,11 +43,6 @@ public class StartProgramState implements ProgramState {
    				default :
     				System.out.println("Invalid input!\n");
     				doAction(context);
-    		}
-    		} finally {
-    			if (sc != null) {
-    				sc.close();
-    			}
     		}
     }
  
